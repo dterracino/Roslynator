@@ -77,6 +77,7 @@
     <Compile Include="DiagnosticAnalyzers\FormatConditionalExpressionDiagnosticAnalyzer.cs" />
     <Compile Include="DiagnosticAnalyzers\AvoidSingleLineBlockDiagnosticAnalyzer.cs" />
     <Compile Include="DiagnosticAnalyzers\SimplifyBooleanExpressionDiagnosticAnalyzer.cs" />
+    <Compile Include="DiagnosticAnalyzers\UseConditionalAccessInsteadOfConditionalExpressionDiagnosticAnalyzer.cs" />
     <Compile Include="DiagnosticAnalyzers\UseConstantInsteadOfFieldDiagnosticAnalyzer.cs" />
     <Compile Include="DiagnosticAnalyzers\MarkFieldAsReadOnlyDiagnosticAnalyzer.cs" />
     <Compile Include="DiagnosticAnalyzers\JoinStringExpressionsDiagnosticAnalyzer.cs" />
