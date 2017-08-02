@@ -24,7 +24,8 @@ namespace Roslynator.CSharp.CodeFixProviders
                 return ImmutableArray.Create(
                     DiagnosticIdentifiers.MakeClassStatic,
                     DiagnosticIdentifiers.AddStaticModifierToAllPartialClassDeclarations,
-                    DiagnosticIdentifiers.ImplementExceptionConstructors);
+                    DiagnosticIdentifiers.ImplementExceptionConstructors,
+                    DiagnosticIdentifiers.UseAttributeUsageAttribute);
             }
         }
 
@@ -112,6 +113,22 @@ namespace Roslynator.CSharp.CodeFixProviders
                                 cancellationToken =>
                                 {
                                     return ImplementExceptionConstructorsRefactoring.RefactorAsync(
+                                        context.Document,
+                                        classDeclaration,
+                                        cancellationToken);
+                                },
+                                diagnostic.Id + EquivalenceKeySuffix);
+
+                            context.RegisterCodeFix(codeAction, diagnostic);
+                            break;
+                        }
+                    case DiagnosticIdentifiers.UseAttributeUsageAttribute:
+                        {
+                            CodeAction codeAction = CodeAction.Create(
+                                "Use AttributeUsageAttribute",
+                                cancellationToken =>
+                                {
+                                    return UseAttributeUsageAttributeRefactoring.RefactorAsync(
                                         context.Document,
                                         classDeclaration,
                                         cancellationToken);
