@@ -78,8 +78,8 @@ namespace Roslynator.CSharp.Refactorings
             if (context.Node.SpanContainsDirectives())
                 return;
 
-            ConditionalExpression conditionalExpression;
-            if (ConditionalExpression.TryCreate((ConditionalExpressionSyntax)context.Node, out conditionalExpression))
+            ConditionalExpressionInfo conditionalExpression;
+            if (ConditionalExpressionInfo.TryCreate((ConditionalExpressionSyntax)context.Node, out conditionalExpression))
             {
                 SemanticModel semanticModel = context.SemanticModel;
                 CancellationToken cancellationToken = context.CancellationToken;
@@ -338,8 +338,8 @@ namespace Roslynator.CSharp.Refactorings
             ConditionalExpressionSyntax conditionalExpressionSyntax,
             CancellationToken cancellationToken)
         {
-            ConditionalExpression conditionalExpression;
-            if (ConditionalExpression.TryCreate(conditionalExpressionSyntax, out conditionalExpression))
+            ConditionalExpressionInfo conditionalExpression;
+            if (ConditionalExpressionInfo.TryCreate(conditionalExpressionSyntax, out conditionalExpression))
             {
                 SemanticModel semanticModel = await document.GetSemanticModelAsync().ConfigureAwait(false);
 
